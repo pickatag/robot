@@ -1,0 +1,17 @@
+{
+  "name": "robot",
+  "version": "0.0.1",
+  "description": "Robot test",
+  "main": "robot.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Patrik Seger",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  },
+  "dependencies": {
+    "readline-async": "^0.1.0"
+  }
+}

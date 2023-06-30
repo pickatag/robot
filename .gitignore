@@ -1,0 +1,5 @@
+# Skip these folders
+node_modules/
+
+# Skip these files
+.dccache
