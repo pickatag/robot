@@ -55,7 +55,7 @@ function splitToXY(str) {
  */
 function checkBoundaries(position, size) {
   // Check values (assume x and y values)
-  return (position && size && position.x >= 0 && position.y >= 0 && position.x <= size.x && position.y <= size.y) ? true : false;
+  return (position && size && position.x >= 0 && position.y >= 0 && position.x < size.x && position.y < size.y) ? true : false;
 }
 
 /**

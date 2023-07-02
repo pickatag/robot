@@ -64,28 +64,32 @@ test('splitToXY - Handle negative parameter', () => {
 // Test cases for checkBoundaries
 // Handle true test cases
 test('checkBoundaries - Check value within', () => {
-  expect(func.checkBoundaries({x: 1, y: 1}, {x: 2, y:2})).toBeTruthy();
+  expect(func.checkBoundaries({x: 1, y: 1}, {x: 3, y: 3})).toBeTruthy();
 });
 
 test('checkBoundaries - Check min border values', () => {
-  expect(func.checkBoundaries({x: 0, y: 0}, {x: 2, y:2})).toBeTruthy();
+  expect(func.checkBoundaries({x: 0, y: 0}, {x: 2, y: 2})).toBeTruthy();
 });
 
 test('checkBoundaries - Check max border value', () => {
-  expect(func.checkBoundaries({x: 2, y: 2}, {x: 2, y:2})).toBeTruthy();
+  expect(func.checkBoundaries({x: 2, y: 2}, {x: 3, y: 3})).toBeTruthy();
 });
 
 // Handle false test cases
 test('checkBoundaries - Check below min', () => {
-  expect(func.checkBoundaries({x: -1, y: 1}, {x: 2, y:2})).toBeFalsy();
+  expect(func.checkBoundaries({x: -1, y: 1}, {x: 2, y: 2})).toBeFalsy();
+});
+
+test('checkBoundaries - Check border value', () => {
+  expect(func.checkBoundaries({x: 2, y: 2}, {x: 2, y: 2})).toBeFalsy();
 });
 
 test('checkBoundaries - Check X above max', () => {
-  expect(func.checkBoundaries({x: 3, y: 1}, {x: 2, y:2})).toBeFalsy();
+  expect(func.checkBoundaries({x: 3, y: 1}, {x: 2, y: 2})).toBeFalsy();
 });
 
 test('checkBoundaries - Check Y above max', () => {
-  expect(func.checkBoundaries({x: 1, y: 3}, {x: 2, y:2})).toBeFalsy();
+  expect(func.checkBoundaries({x: 1, y: 3}, {x: 2, y: 2})).toBeFalsy();
 });
 
 // ------------------------------------------------------------------------------------------------
