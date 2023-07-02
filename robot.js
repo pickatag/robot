@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * This is the main file for a simulation of a robot.
+ * The program expects three console inputs and then reports
+ * the final position of the robot in the room.
+ */
 const userInput = require('readline-async');
 const { splitToXY, checkBoundaries, setDirection, getDirection, isCommandForward, stepPosition, changeDirection } = require('./src/func');
 
@@ -12,6 +17,7 @@ if (trace) {
   console.log('Trace activated');
 }
 
+// Get first user input (size of room)
 userInput()
 .then(input => {
   // Interpret values for size of room
@@ -20,7 +26,7 @@ userInput()
     // Values could not be handled properly, throw error
     throw new Error('Size could not be interpreted ("x y" expected)');
   }
-  // Get next value
+  // Get next user input (start position and initial direction)
   return userInput();
 })
 .then(input => {
@@ -43,6 +49,7 @@ userInput()
     // Value could not be handled properly, throw error
     throw new Error('Direction could not be interpreted ("x y direction" expected)');
   }
+  // Get next user input (commands for robot movements)
   return userInput();
 })
 .then(input => {
@@ -73,7 +80,7 @@ userInput()
         console.log('Turn:   ' + position.x + ' ' + position.y + ' ' + getDirection(direction));
       }
     }
-});
+  });
 
   // Done, end by reporting position
   console.log('Report: ' + position.x + ' ' + position.y + ' ' + getDirection(direction));
