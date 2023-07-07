@@ -199,9 +199,9 @@ function stepPosition(position, direction) {
  * Possible directions and the corresponding delta values are:
  *  Direction      x    y
  *  ----------------------
- *   0 ("north")    0   1
+ *   0 ("north")    0  -1
  *   1 ("east")     1   0
- *   2 ("south")    0  -1
+ *   2 ("south")    0   1
  *   3 ("west")    -1   0
  * 
  * @param {number} direction - The direction set
@@ -211,11 +211,11 @@ function getDeltaXY(direction) {
   // Check type of input and protect for null values
   switch(direction) {
     case NORTH: // North
-      return {x: 0, y: 1};
+      return {x: 0, y: -1};
     case EAST: // East
       return {x: 1, y: 0};
     case SOUTH: // South
-      return {x: 0, y: -1};
+      return {x: 0, y: 1};
     case WEST: // West
       return {x: -1, y: 0};
     default:

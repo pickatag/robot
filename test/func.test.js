@@ -235,9 +235,9 @@ test('isCommandForward - Handle wrong value', () => {
 test('stepPosition - Go around', () => {
   let position = {x: 1, y: 1};
 
-  expect(func.stepPosition(position, func.NORTH)).toStrictEqual({x: 1, y: 2}); // North
+  expect(func.stepPosition(position, func.NORTH)).toStrictEqual({x: 1, y: 0}); // North
   expect(func.stepPosition(position, func.EAST)).toStrictEqual({x: 2, y: 1}); // East
-  expect(func.stepPosition(position, func.SOUTH)).toStrictEqual({x: 1, y: 0}); // South
+  expect(func.stepPosition(position, func.SOUTH)).toStrictEqual({x: 1, y: 2}); // South
   expect(func.stepPosition(position, func.WEST)).toStrictEqual({x: 0, y: 1}); // West
 });
 
@@ -250,11 +250,11 @@ test('stepPosition - Wrong direction', () => {
 // Test cases for getDeltaXY
 // Normal test cases
 test('getDeltaXY - Get for north', () => {
-  expect(func.getDeltaXY(func.NORTH)).toStrictEqual({x: 0, y: 1});
+  expect(func.getDeltaXY(func.NORTH)).toStrictEqual({x: 0, y: -1});
 });
 
 test('getDeltaXY - Get for south', () => {
-  expect(func.getDeltaXY(func.SOUTH)).toStrictEqual({x: 0, y: -1});
+  expect(func.getDeltaXY(func.SOUTH)).toStrictEqual({x: 0, y: 1});
 });
 
 test('getDeltaXY - Get for east', () => {
